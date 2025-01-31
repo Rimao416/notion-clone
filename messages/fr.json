@@ -1,0 +1,64 @@
+{
+    "LocaleSwitcher": {
+      "en-US": {
+        "language": "Anglais",
+        "country": "Anglais (US)",
+        "code": "en-US"
+      },
+      "ko": {
+        "language": "Coréen",
+        "country": "한국인",
+        "code": "ko"
+      },
+      "ja": {
+        "language": "Japonais",
+        "country": "일본어",
+        "code": "ja"
+      },
+      "fr-FR": {
+        "language": "Français",
+        "country": "Français (France)",
+        "code": "fr-FR"
+      },
+      "de": {
+        "language": "Allemand",
+        "country": "Allemand",
+        "code": "de"
+      },
+      "es-ES": {
+        "language": "Espagnol (Espagne)",
+        "country": "Espagnol (Espagne)",
+        "code": "es-ES"
+      },
+      "es-419": {
+        "language": "Espagnol (Amérique latine)",
+        "country": "Espagnol (Amérique latine)",
+        "code": "es-419"
+      },
+      "pt-BR": {
+        "language": "Portugais (Brésil)",
+        "country": "Portugais (Brésil)",
+        "code": "pt-BR"
+      },
+      "fi": {
+        "language": "Finnois",
+        "country": "Finnois",
+        "code": "fi"
+      },
+      "da": {
+        "language": "Danois",
+        "country": "Danois",
+        "code": "da"
+      },
+      "no": {
+        "language": "Norvégien",
+        "country": "Norvégien",
+        "code": "no"
+      },
+      "sv": {
+        "language": "Suédois",
+        "country": "Suédois",
+        "code": "sv"
+      }
+    }
+}

@@ -1,0 +1,60 @@
+"use client";
+import LanguageProvider from "@/components/LanguageProvider";
+import LoginButton from "@/components/LoginButton";
+import Image from "next/image";
+
+function LoginPage() {
+  return (
+    <section>
+      <div className="fixed top-6 left-5 w-full">
+        <div className="flex gap-4 items-center">
+          <Image
+            src="/Notion-logo.svg"
+            alt="Notion-logo"
+            width={30}
+            height={30}
+            className="inline-block"
+          />
+          <div className="h-6 border-l border-gray-300"></div>
+
+          {/* Bouton de sélection de langue */}
+          <LanguageProvider />
+        </div>
+      </div>
+
+      {/* Section Connexion */}
+      <div className="flex flex-col items-center justify-center h-screen max-w-[300px] mx-auto">
+        <h1 className="text-xl text-black font-[600]">
+          Donnez vie à vos idées.{" "}
+          <span className="text-gray-400">
+            Connectez-vous à votre compte Notion
+          </span>{" "}
+        </h1>
+        <div className="mt-6 w-full relative">
+          <LoginButton
+            text="Continuer avec Google"
+            icon="/google.png"
+            onClick={() => console.log("Google")}
+          />
+          <LoginButton
+            text="Continuer avec Apple"
+            icon="/apple.png"
+            onClick={() => console.log("Apple")}
+          />
+          <LoginButton
+            text="Se connecter avec une clé d'accès"
+            icon="/access.png"
+            onClick={() => console.log("Clé d'accès")}
+          />
+          <LoginButton
+            text="Authentification unique (SSO)"
+            icon="/building.png"
+            onClick={() => console.log("SSO")}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default LoginPage;
