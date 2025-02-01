@@ -1,64 +1,68 @@
 {
-    "LocaleSwitcher": {
-      "en": {
-        "language": "English",
-        "country": "English (US)",
-        "code": "en-US"
-      },
-      "ko": {
-        "language": "Korean",
-        "country": "한국인",
-        "code": "ko"
-      },
-      "ja": {
-        "language": "Japanese",
-        "country": "일본어",
-        "code": "ja"
-      },
-      "fr-FR": {
-        "language": "French",
-        "country": "French (France)",
-        "code": "fr-FR"
-      },
-      "de": {
-        "language": "German",
-        "country": "German",
-        "code": "de"
-      },
-      "es-ES": {
-        "language": "Spanish (Spain)",
-        "country": "Spanish (Spain)",
-        "code": "es-ES"
-      },
-      "es-419": {
-        "language": "Spanish (Latin America)",
-        "country": "Spanish (Latin America)",
-        "code": "es-419"
-      },
-      "pt-BR": {
-        "language": "Portuguese (Brazil)",
-        "country": "Portuguese (Brazil)",
-        "code": "pt-BR"
-      },
-      "fi": {
-        "language": "Finnish",
-        "country": "Finnish",
-        "code": "fi"
-      },
-      "da": {
-        "language": "Danish",
-        "country": "Danish",
-        "code": "da"
-      },
-      "no": {
-        "language": "Norwegian",
-        "country": "Norwegian",
-        "code": "no"
-      },
-      "sv": {
-        "language": "Swedish",
-        "country": "Swedish",
-        "code": "sv"
-      }
+  "LocaleSwitcher": {
+    "en": {
+      "language": "English",
+      "country": "English (US)",
+      "code": "en"
+    },
+    "ko": {
+      "language": "Korean",
+      "country": "한국인",
+      "code": "ko"
+    },
+    "ja": {
+      "language": "Japanese",
+      "country": "일본어",
+      "code": "ja"
+    },
+    "fr-FR": {
+      "language": "French",
+      "country": "French (France)",
+      "code": "fr"
+    },
+    "de": {
+      "language": "German",
+      "country": "German",
+      "code": "de"
+    },
+    "es-ES": {
+      "language": "Spanish (Spain)",
+      "country": "Spanish (Spain)",
+      "code": "es-ES"
+    },
+    "es-419": {
+      "language": "Spanish (Latin America)",
+      "country": "Spanish (Latin America)",
+      "code": "es-419"
+    },
+    "pt-BR": {
+      "language": "Portuguese (Brazil)",
+      "country": "Portuguese (Brazil)",
+      "code": "pt-BR"
+    },
+    "fi": {
+      "language": "Finnish",
+      "country": "Finnish",
+      "code": "fi"
+    },
+    "da": {
+      "language": "Danish",
+      "country": "Danish",
+      "code": "da"
+    },
+    "no": {
+      "language": "Norwegian",
+      "country": "Norwegian",
+      "code": "no"
+    },
+    "sv": {
+      "language": "Swedish",
+      "country": "Swedish",
+      "code": "sv"
     }
+  },
+  "login": {
+    "title": "Bring your ideas to life.",
+    "subtitle": "Log in to your Notion account"
   }
+}

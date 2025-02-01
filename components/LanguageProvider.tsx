@@ -1,26 +1,67 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useTransition } from "react";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { Locale } from "@/i18n/config";
+import { setUserLocale } from "@/services/locale";
 
 function LanguageProvider() {
-  const t = useTranslations("LocaleSwitcher");
+  const t = useTranslations();
+  const locale=useLocale();
+  console.log(locale)
 
   type Language = {
     language: string;
     country: string;
     code: string;
-    isBeta?: boolean;
+    isBeta?: boolean; // Facultatif
   };
+  
+  const [isPending, startTransition] = useTransition();
 
-  const languages: Language[] = Object.entries(
-    (t.raw("LocaleSwitcher") as Record<string, { language: string; country: string }>) ?? {}
-  ).map(([code, value]) => ({
-    code,
-    language: value.language,
-    country: value.country,
-  }));
+  function onChange(value: string) {
+    const locale = value as Locale;
+    startTransition(() => {
+      setIsDropdownOpen(false);
+      setUserLocale(locale);
+    });
+  }
+  // Fonction pour récupérer les langues
+  const getLanguages = (): Language[] => {
+    // Récupération des données depuis `t.raw`
+    const localeData = t.raw("LocaleSwitcher") as Record<
+      string,
+      { language: string; country: string; code: string }
+    > | null;
+  
+    // Vérification si les données sont disponibles
+    if (!localeData) {
+      console.error("⚠️ Erreur: LocaleSwitcher est introuvable !");
+      return [];
+    }
+  
+    // Transformation de l'objet en tableau
+    return Object.entries(localeData).map(([key, value]) => ({
+      code: value.code || key, // Priorité au `code`, sinon utiliser la clé
+      language: value.language,
+      country: value.country,
+    }));
+  };
+  
+  // Charger les langues
+  const languages: Language[] = getLanguages();
+  
+  console.log("🌍 Liste des langues chargées :", languages);
+
+  // const languages: Language[] = Object.entries(
+  //   (t.raw("LocaleSwitcher") as Record<string, { language: string; country: string }>) ?? {}
+  // ).map(([code, value]) => ({
+  //   code,
+  //   language: value.language,
+  //   country: value.country,
+  // }));
+
   
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -30,12 +71,7 @@ function LanguageProvider() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Détection de la langue du système et sélection de la langue par défaut
-  useEffect(() => {
-    const systemLang = navigator.language; // Ex: "fr-FR"
-    const defaultLang =
-      languages.find((lang) => lang.code === systemLang) || languages[0]; // Fallback
-    setSelectedLanguage(defaultLang);
-  }, [languages]);
+
 
   // Fermer le menu lorsqu'on clique en dehors
   useEffect(() => {
@@ -79,10 +115,7 @@ function LanguageProvider() {
             <div
               key={language.code}
               className="flex justify-between text-sm font-light mt-4 px-4 py-1 items-center hover:bg-gray-100 w-full cursor-pointer"
-              onClick={() => {
-                setSelectedLanguage(language);
-                setIsDropdownOpen(false);
-              }}
+              onClick={onChange.bind(null, language.code)}
             >
               <div>
                 <p className="font-normal">{language.country}</p>
