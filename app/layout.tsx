@@ -3,12 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
+import ClientOnly from "@/components/ClientOnly";
 
 const InterFont = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,15 +22,14 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
-  console.log(messages)
   return (
     <html lang={locale}>
-      <body
-        className={`${InterFont.variable} antialiased`}
-      >
- <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+      <body className={`${InterFont.variable}`}>
+        <ClientOnly>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ClientOnly>
       </body>
     </html>
   );

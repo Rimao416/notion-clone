@@ -63,6 +63,11 @@
     },
     "login": {
       "title": "Donnez vie à vos idées.",
-      "subtitle": "Connectez-vous à votre compte Notion"
-    }
+      "subtitle": "Connectez-vous à votre compte Notion",
+      "withGoogle": "Continuer avec Google",
+      "withApple": "Continuer avec Apple",
+      "withAccessKey": "Continuer avec une clé d'accès",
+      "withSso": "Authentification unique (SSO)"
+    },
+    "switwLanguageText":"Souhaitez-vous vraiment changer la langue et passer en "
 }

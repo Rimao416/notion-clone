@@ -8,7 +8,7 @@ function LoginPage() {
   const t=useTranslations("login")
   return (
     <section>
-      <div className="fixed top-6 left-5 w-full">
+      <div className="fixed top-6 left-5 w-full z-50">
         <div className="flex gap-4 items-center">
           <Image
             src="/Notion-logo.svg"
@@ -34,22 +34,22 @@ function LoginPage() {
         </h1>
         <div className="mt-6 w-full relative">
           <LoginButton
-            text="Continuer avec Google"
+            text={t("withGoogle")}
             icon="/google.png"
             onClick={() => console.log("Google")}
           />
           <LoginButton
-            text="Continuer avec Apple"
+            text={t("withApple")}
             icon="/apple.png"
             onClick={() => console.log("Apple")}
           />
           <LoginButton
-            text="Se connecter avec une clé d'accès"
+            text={t("withAccessKey")}
             icon="/access.png"
             onClick={() => console.log("Clé d'accès")}
           />
           <LoginButton
-            text="Authentification unique (SSO)"
+            text={t("withSso")}
             icon="/building.png"
             onClick={() => console.log("SSO")}
           />

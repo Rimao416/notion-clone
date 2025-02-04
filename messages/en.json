@@ -62,7 +62,12 @@
     }
   },
   "login": {
-    "title": "Bring your ideas to life.",
-    "subtitle": "Log in to your Notion account"
-  }
+    "title": "Think it. Make it.",
+    "subtitle": "Log in to your Notion account",
+    "withGoogle": "Continue with Google",
+    "withApple": "Continue with Apple",
+    "withAccessKey": "Continuewith an access key",
+    "withSso": "Single sign-on (SSO)"
+  },
+  "switwLanguageText": "Are you sure you want to update the language to "
 }
