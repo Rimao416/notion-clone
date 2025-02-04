@@ -4,14 +4,26 @@ import Modal from "./Modal";
 import useLanguageProviderModal from "@/hooks/useLanguageProviderModal";
 import { setUserLocale } from "@/services/locale";
 import { useTranslations } from "next-intl";
-import { Locale } from "@/i18n/config";
-
 interface LanguageProviderModalProps {
-  locale: "en" | "ko" | "ja" | "fr" | "de" | "es" | "pt" | "fi" | "da" | "no" | "sv";
-  selectedLanguage?: { code: string; country: string } | null;
+  locale:
+    | "en"
+    | "ko"
+    | "ja"
+    | "fr"
+    | "de"
+    | "es"
+    | "pt"
+    | "fi"
+    | "da"
+    | "no"
+    | "sv";
+  selectedLanguage?: string;
 }
 
-function LanguageProviderModal({ locale, selectedLanguage }: LanguageProviderModalProps) {
+function LanguageProviderModal({
+  locale,
+  selectedLanguage,
+}: LanguageProviderModalProps) {
   const LanguageProviderModal = useLanguageProviderModal();
   const t = useTranslations();
 
@@ -21,15 +33,14 @@ function LanguageProviderModal({ locale, selectedLanguage }: LanguageProviderMod
       onClose={LanguageProviderModal.onClose}
     >
       <h4 className="text-sm font-medium text-center">
-        {t("switwLanguageText")} {selectedLanguage?.country} ?
+        {t("switwLanguageText")} {selectedLanguage} ?
       </h4>
       <div className="flex gap-2 mt-4 flex-col">
         <button
           className="py-2 px-3 bg-[#EB57571A] text-white rounded-lg transition w-full border border-[#EB5757]"
           onClick={() => {
-            console.log(locale);
-            setUserLocale(selectedLanguage?.code as Locale);
             LanguageProviderModal.onClose();
+            setUserLocale(locale);
           }}
         >
           <p className="text-sm font-normal text-[#EB5757]">Modifier</p>

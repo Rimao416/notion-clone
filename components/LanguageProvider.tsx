@@ -11,7 +11,7 @@ function LanguageProvider() {
   const t = useTranslations();
   const locale = useLocale();
   const [actualLocale, setActualLocale] = useState(locale);
-  const [langTemp, setLangTemp] = useState<{ code: string; country: string } | null>(null);
+  const [langTemp, setLangTemp] = useState<Language | null>(null);
   const LanguageProviderModalFunc = useLanguageProviderModal();
 
   type Language = {
@@ -61,12 +61,7 @@ function LanguageProvider() {
   function onChange(value: string, event: React.MouseEvent) {
     event.stopPropagation();
     const newLocale = value as Locale;
-    const selectedLang = languages.find((lang) => lang.code === newLocale) || null;
-    console.log(selectedLanguage?.country)
-    console.log(selectedLanguage?.language)
-    if (selectedLang) {
-      setLangTemp({ code: selectedLang.code, country: selectedLang.country });
-    }
+    setLangTemp(languages.find((lang) => lang.code === newLocale) || null); 
 
     if (newLocale === actualLocale) {
       setIsDropdownOpen(false);
@@ -77,6 +72,7 @@ function LanguageProvider() {
 
     setTimeout(() => {
       LanguageProviderModalFunc.onOpen();
+      setActualLocale(newLocale);
     }, 100);
   }
 
@@ -129,7 +125,7 @@ function LanguageProvider() {
           </motion.div>
         )}
       </div>
-      <LanguageProviderModal locale={actualLocale as Locale} selectedLanguage={langTemp} />
+      <LanguageProviderModal locale={actualLocale as Locale} selectedLanguage={langTemp?.country} />
     </>
   );
 }
